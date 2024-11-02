@@ -1,1 +1,1 @@
-from dataloader import *
+from .dataloader import MyDataloader

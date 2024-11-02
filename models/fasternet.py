@@ -146,9 +146,9 @@ class FasterNet(nn.Module):
             self.load_pretrained_parameters()
 
     def load_pretrained_parameters(self,
-                                   pretrained_path='../model_ckpt/fasternet_t0-epoch=281-val_acc1=71.9180.pth'):
+                                   pretrained_path='model_ckpt/fasternet_t0-epoch=281-val_acc1=71.9180.pth'):
         # 加载预训练参数
-        pretrained_dict = torch.load(pretrained_path)
+        pretrained_dict = torch.load(pretrained_path, weights_only='True')
 
         # 加载参数到模型
         model_dict = self.state_dict()

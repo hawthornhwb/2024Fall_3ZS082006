@@ -1,4 +1,4 @@
-from fasternet import FasterNet
+from .fasternet import FasterNet
 from torch import nn
 import torchvision
 
