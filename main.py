@@ -3,6 +3,7 @@ from torch import nn
 import torch
 from torch.utils.tensorboard import SummaryWriter
 from tqdm import tqdm
+import os
 
 
 import models.models_api
@@ -19,13 +20,14 @@ def train(model, train_loader, n_epochs, config, device, save_model_path):
                                 weight_decay=config['weight_decay'])
     scheduler = torch.optim.lr_scheduler.StepLR(optimizer, config['lr_period'], config['lr_decay'])
     writer = SummaryWriter()
+    model = model.to(device)
 
     n_epochs, step = n_epochs, 0
 
     for epoch in range(n_epochs):
         loss_record = []
         batch_size_sum = 0
-
+        os.system('nvidia-smi')  # 执行nvidia-smi命令查看GPU状态
 
         train_pbar = tqdm(train_loader, position=0, leave=True)
 
@@ -97,4 +99,4 @@ if __name__ == '__main__':
         test(model, valid_loader, device, f'model_ckpt/{args.model_name}')
     else:
         train_loader = MyDataloader(args.batch_size).train_dataloader()
-        train(model, train_loader, args.n_epochs, config, device, f'model_ckpt/{args.model_name}')
+        train(model, train_loader, args.n_epochs, config, device, f'model_ckpt/{args.model_name}.pth')

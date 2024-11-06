@@ -45,6 +45,7 @@ class MyDataloader:
         loader: DataLoader = DataLoader(
             train_ds,
             self.batch_size,
+            num_workers=4,
             shuffle=True,
             drop_last=True
         )
@@ -59,6 +60,7 @@ class MyDataloader:
         loader: DataLoader = DataLoader(
             valid_ds,
             self.batch_size,
+            num_workers=4,
             shuffle=False,
             drop_last=False
         )
