@@ -6,22 +6,20 @@
 
 ## 1. 配置依赖环境
 
-创建一个本项目的虚拟环境
-
-```bash
-conda create -n finetunenet python=3.9.20 -y
-conda activate finetunenet
-```
-
 克隆本项目的仓库并安装依赖库
 
 ```
 git clone https://github.com/hawthornhwb/2024Fall_3ZS082006.git
 cd 2024Fall_3ZS082006/
-pip install -r requirements.txt
 ```
 
+创建一个本项目的虚拟环境
 
+```
+conda create -n finetunenet python=3.9.20 -y
+conda activate finetunenet
+pip install -r requirements.txt
+```
 
 ### 2. 数据集准备：
 
