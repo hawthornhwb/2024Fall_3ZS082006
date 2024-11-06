@@ -30,11 +30,12 @@ conda activate finetunenet
     .....
 ```
 
-将下载下来的数据集解压到dataset文件夹下
+数据集压缩
 
 ```bash
-mkdir dataset # 创建一个存放数据的目录
 cd dataset # 先转到dataset目录下
+mkdir dog_breed_identification # 在dataset目录下创建一个存放数据的目录
+# 将kaggle上下载的数据压缩到dog_breed_identification目录中
 python dataprocess.py -v 0.1 # 进行训练集与测试集的分割
 cd ..
 ```
